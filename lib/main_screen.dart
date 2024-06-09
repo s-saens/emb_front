@@ -1,6 +1,5 @@
 import 'package:airflower/components/current_condition.dart';
-import 'package:airflower/components/mode_button.dart';
-import 'package:airflower/data/providers.dart';
+import 'package:airflower/components/mode_buttons/a_mode_buttons.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatelessWidget {
@@ -14,9 +13,10 @@ class MainScreen extends StatelessWidget {
           padding: EdgeInsets.all(20),
           child: Center(
             child: Column(
+
               children: [
                 CurrentCondition(),
-                ModeButton(mode: Mode.none),
+                ModeButtons()
               ],
             ),
           ),
