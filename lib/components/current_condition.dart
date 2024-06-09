@@ -6,16 +6,14 @@ class CurrentCondition extends ConsumerWidget {
   const CurrentCondition({super.key});
 
   String _getTempText(TempMode m, double t) {
-    String text = "";
     switch (m) {
       case TempMode.celsius:
-        text = '${t.toString()} °C';
-        break;
+        return '${t.toString()} °C';
       case TempMode.fahrenheit:
-        text = '${t.toString()} °F';
+        return '${t.toString()} °F';
       default:
+        return 'ERROR';
     }
-    return text;
   }
 
   @override
