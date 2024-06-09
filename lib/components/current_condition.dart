@@ -9,10 +9,10 @@ class CurrentCondition extends ConsumerWidget {
     String text = "";
     switch (m) {
       case TempMode.celsius:
-        text = '${t.toString()}°C';
+        text = '${t.toString()} °C';
         break;
       case TempMode.fahrenheit:
-        text = '${t.toString()}°F';
+        text = '${t.toString()} °F';
       default:
     }
     return text;
@@ -23,33 +23,29 @@ class CurrentCondition extends ConsumerWidget {
     final Condition c = ref.watch(conditionProvider);
     final TempMode tempMode = ref.watch(tempModeProvider);
 
-    return Row(
-      children: [
-        Column(
-          children: [
-            ConditionItem("TEMPERATURE", _getTempText(tempMode, c.temp)),
-            ConditionItem("HUMIDITY", '${c.humid.toString()}%'),
-          ],
-        ),
-        const Column(
-          children: [],
-        ),
-      ],
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ConditionItem("TEMPERATURE", _getTempText(tempMode, c.temp)),
+          ConditionItem("H  U  M  I  D", '${c.humid.toString()}%'),
+        ],
+      ),
     );
   }
 }
 
 class ConditionItem extends ConsumerWidget {
-  final String value;
   final String text;
+  final String value;
 
-  const ConditionItem(this.value, this.text, {super.key});
+  const ConditionItem(this.text, this.value, {super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
-      height: 150,
-      width: 100,
+      height: 100,
+      width: 200,
       child: Column(
         children: [
           Expanded(
@@ -58,7 +54,10 @@ class ConditionItem extends ConsumerWidget {
           ),
           Expanded(
             flex: 2,
-            child: Text(value),
+            child: Text(
+              value,
+              style: const TextStyle(fontSize: 30),
+            ),
           ),
         ],
       ),

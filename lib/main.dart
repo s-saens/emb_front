@@ -33,9 +33,7 @@ class MyApp extends ConsumerWidget {
         path: '/',
         pageBuilder: (context, state) => myTransitionPage(
           state,
-          const Scaffold(
-            body: Center(child: Text("!")),
-          ),
+          const MainScreen(),
           const Offset(1, 0),
         ),
       ),

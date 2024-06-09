@@ -22,6 +22,11 @@ enum Mode {
   manual,
 }
 
+class Configuration {
+  // final double temp;
+  // final double
+}
+
 final tempModeProvider = StateProvider((ref) => TempMode.celsius);
 final modeProvider = StateProvider((ref) => Mode.manual);
 final conditionProvider = StateProvider((ref) => const Condition(27, 15));
