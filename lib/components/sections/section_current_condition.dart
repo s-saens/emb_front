@@ -2,8 +2,8 @@ import 'package:airflower/data/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CurrentCondition extends ConsumerWidget {
-  const CurrentCondition({super.key});
+class SectionCurrentCondition extends ConsumerWidget {
+  const SectionCurrentCondition({super.key});
 
   String _getTempText(TempMode m, double t) {
     switch (m) {

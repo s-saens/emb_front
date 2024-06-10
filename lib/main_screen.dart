@@ -1,6 +1,9 @@
-import 'package:airflower/components/current_condition.dart';
-import 'package:airflower/components/mode_buttons/a_mode_buttons.dart';
+import 'package:airflower/components/sections/section_current_condition.dart';
+import 'package:airflower/components/sections/section_mode_buttons.dart';
+import 'package:airflower/components/sections/section_settings.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -10,13 +13,22 @@ class MainScreen extends StatelessWidget {
     return const Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(50),
           child: Center(
             child: Column(
-
               children: [
-                CurrentCondition(),
-                ModeButtons()
+                SizedBox(height: 100),
+                Expanded(flex: 3, child: SectionCurrentCondition()),
+                Expanded(
+                  flex: 10,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(flex: 1, child: SectionModeButtons()),
+                      Expanded(flex: 10, child: SectionSettings()),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

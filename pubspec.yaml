@@ -38,6 +38,7 @@ dependencies:
   go_router: 
   intl:
   flutter_dotenv:
+  flutter_animate: ^4.5.0
 
 dev_dependencies:
   flutter_test:

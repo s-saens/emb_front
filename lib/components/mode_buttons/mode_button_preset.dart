@@ -1,4 +1,4 @@
-import 'package:airflower/components/mode_buttons/mode_button.dart';
+import 'package:airflower/components/mode_buttons/_mode_button.dart';
 import 'package:airflower/data/providers.dart';
 import 'package:flutter/material.dart';
 
