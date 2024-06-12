@@ -21,7 +21,6 @@ dependencies:
   
   # managing app informations
   flutter_launcher_icons:
-  package_info_plus: 
 
   # assets
   cupertino_icons:

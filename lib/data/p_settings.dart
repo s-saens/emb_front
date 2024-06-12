@@ -5,8 +5,8 @@ enum Type {
   cool,
   warm,
   dehumid,
-  normal_wind,
   auto,
+  normal_wind,
 }
 
 class SettingProvider extends StateNotifier<int> {

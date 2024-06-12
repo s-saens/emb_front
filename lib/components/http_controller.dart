@@ -1,9 +1,7 @@
-import 'package:airflower/data/p_settings.dart';
 import 'package:airflower/data/providers.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 
-const String baseUrl = 'https://192.168.0.9:4000/';
+const String baseUrl = 'https://192.168.0.10:4000/';
 Uri url(String api) => Uri.parse(baseUrl + api);
 
 final headers = {
@@ -11,22 +9,34 @@ final headers = {
 };
 
 Future<void> fetchCondition() async {
-  final response = await http.get(
-    url("system/current"),
-    headers: headers,
-  );
+  // await http.get(
+  //   url("system/current"),
+  //   headers: headers,
+  // );
 
-  print(response.body);
+  // await Future.delayed(const Duration(seconds: 10));
 
-  await Future.delayed(const Duration(seconds: 10));
-
-  fetchCondition();
+  // fetchCondition();
 }
 
-Future<void> sendConfig(String json) async {
-  final response = await http.post(
-    url("system/current"),
-    headers: headers,
-    body: json,
-  );
+Future<void> sendCode(int code, int timer) async {
+  // await http.post(
+  //   url("action/list"),
+  //   headers: headers,
+  //   body: '''{
+  //     "ACTION_LIST": [
+  //       {"ACTION_TYPE": $code, "TIMER": $timer}
+  //     ]
+  //   }''',
+  // );
+}
+
+Future<void> setMode(Mode mode) async {
+  // await http.post(
+  //   url("system/mode"),
+  //   headers: headers,
+  //   body: '''{
+  //     "MODE": ${mode.index}
+  //   }''',
+  // );
 }

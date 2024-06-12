@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:airflower/data/hive_constants.dart';
 import 'package:airflower/main_screen.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +7,14 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    // '?'를 추가해서 null safety 확보
+    return super.createHttpClient(context)..badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+  }
+}
 
 Future<void> hiveInit() async {
   await Hive.deleteFromDisk();
@@ -17,6 +27,8 @@ Future<void> hiveInit() async {
 void main() async {
   await hiveInit();
   await dotenv.load(fileName: '.env');
+  
+  HttpOverrides.global = MyHttpOverrides();
 
   WidgetsFlutterBinding.ensureInitialized();
   runApp(ProviderScope(child: MyApp()));

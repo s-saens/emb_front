@@ -1,3 +1,4 @@
+import 'package:airflower/components/http_controller.dart';
 import 'package:airflower/data/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -32,7 +33,10 @@ class ModeButton extends ConsumerWidget {
           height: 50,
           padding: const EdgeInsets.all(10),
           onPressed: () {
-            if (!isSelected) ref.read(modeProvider.notifier).state = mode;
+            if (!isSelected) {
+              ref.read(modeProvider.notifier).state = mode;
+              setMode(mode);
+            }
           },
           textColor: textColor,
           color: bgColor,

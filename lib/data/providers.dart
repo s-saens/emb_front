@@ -22,5 +22,5 @@ enum Mode {
   manual,
 }
 final modeProvider = StateProvider((ref) => Mode.manual); // 설정 모드
-final conditionProvider = StateProvider((ref) => const Condition(27, 15)); // 현재 온도 및 습도
+final conditionProvider = StateProvider((ref) => const Condition(24, 71)); // 현재 온도 및 습도
 

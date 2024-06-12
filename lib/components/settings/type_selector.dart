@@ -1,3 +1,4 @@
+import 'package:airflower/components/settings/settings_preset.dart';
 import 'package:airflower/data/p_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,29 +9,26 @@ class TypeSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Card(
-      child: Padding(
-        padding: EdgeInsets.all(20),
-        child: SizedBox(
-          width: 250,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TypeButton(type: Type.cool, icon: Icons.ac_unit_outlined),
-                  TypeButton(type: Type.warm, icon: Icons.whatshot_outlined),
-                  TypeButton(type: Type.normal_wind, icon: Icons.air),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TypeButton(type: Type.dehumid, icon: Icons.water_drop_rounded),
-                  TypeButton(type: Type.auto, icon: Icons.thermostat_auto_outlined),
-                ],
-              ),
-            ],
-          ),
+      child: SizedBox(
+        width: 250,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TypeButton(type: Type.cool),
+                TypeButton(type: Type.warm),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TypeButton(type: Type.dehumid),
+                TypeButton(type: Type.auto),
+                TypeButton(type: Type.normal_wind),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -39,16 +37,15 @@ class TypeSelector extends StatelessWidget {
 
 class TypeButton extends ConsumerWidget {
   final Type type;
-  final IconData icon;
 
   const TypeButton({
     super.key,
     required this.type,
-    required this.icon,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final icon = modeIcons[type.index];
     final selectedType = ref.watch(settingTypeProvider);
     final isSelected = type == selectedType;
 

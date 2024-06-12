@@ -1,5 +1,6 @@
 import 'package:airflower/components/settings/_settings.dart';
 import 'package:airflower/components/settings/type_selector.dart';
+import 'package:airflower/components/start_button.dart';
 import 'package:airflower/data/hive_constants.dart';
 import 'package:airflower/data/p_settings.dart';
 import 'package:airflower/data/providers.dart';
@@ -28,16 +29,13 @@ class SettingsManual extends StatelessWidget {
                 provider: settingTempProvider,
                 suffix: " °C",
               ),
-              const SizedBox(width: 30),
               SettingController(
                 icon: Icons.air,
                 provider: settingWindProvider,
               ),
             ],
           ),
-          const SizedBox(height: 30),
           const TypeSelector(),
-          const SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -88,10 +86,7 @@ class SettingsManual extends StatelessWidget {
               const SizedBox(
                 width: 30,
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.send),
-              ),
+              const StartButton(),
             ],
           ),
         ],
