@@ -5,11 +5,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class ModeButton extends ConsumerWidget {
   final Mode mode;
   final Widget open;
+  final bool enabled;
 
   const ModeButton({
     super.key,
     required this.mode,
     required this.open,
+    this.enabled = true,
   });
 
   @override
@@ -19,8 +21,8 @@ class ModeButton extends ConsumerWidget {
     final modeString = mode.toString().split('.')[1].toUpperCase();
 
     final colorScheme = Theme.of(context).colorScheme;
-    final textColor = isSelected ? colorScheme.background : colorScheme.primary;
-    final bgColor = isSelected ? colorScheme.primary : colorScheme.background;
+    final textColor = isSelected ? colorScheme.background : Colors.white;
+    final bgColor = isSelected ? Colors.white : colorScheme.background;
 
     return Padding(
       padding: const EdgeInsets.all(10),

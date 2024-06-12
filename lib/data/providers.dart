@@ -16,17 +16,11 @@ enum TempMode {
 }
 
 enum Mode {
-  none,
+  sleep,
   ai,
   preset,
   manual,
 }
+final modeProvider = StateProvider((ref) => Mode.manual); // 설정 모드
+final conditionProvider = StateProvider((ref) => const Condition(27, 15)); // 현재 온도 및 습도
 
-class Configuration {
-  // final double temp;
-  // final double
-}
-
-final tempModeProvider = StateProvider((ref) => TempMode.celsius);
-final modeProvider = StateProvider((ref) => Mode.manual);
-final conditionProvider = StateProvider((ref) => const Condition(27, 15));

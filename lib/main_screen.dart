@@ -13,19 +13,24 @@ class MainScreen extends StatelessWidget {
     return const Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(50),
+          padding: EdgeInsets.symmetric(vertical: 100, horizontal: 50),
           child: Center(
             child: Column(
               children: [
-                SizedBox(height: 100),
-                Expanded(flex: 3, child: SectionCurrentCondition()),
+                Expanded(
+                  flex: 1,
+                  child: SectionCurrentCondition(),
+                ),
                 Expanded(
                   flex: 10,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Expanded(flex: 1, child: SectionModeButtons()),
-                      Expanded(flex: 10, child: SectionSettings()),
+                      Expanded(child: SectionSettings()),
+                      SizedBox(
+                        height: 50,
+                        child: SectionModeButtons(),
+                      ),
                     ],
                   ),
                 ),

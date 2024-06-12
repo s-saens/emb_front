@@ -19,7 +19,7 @@ class SectionSettings extends ConsumerWidget {
         w = const SettingsAI();
       case Mode.manual:
         w = const SettingsManual();
-      case Mode.none:
+      case Mode.sleep:
         w = const SettingsNone();
       case Mode.preset:
         w = const SettingsPreset();

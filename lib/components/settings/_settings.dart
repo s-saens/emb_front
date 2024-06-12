@@ -17,15 +17,16 @@ class Settings extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const dur = Duration(milliseconds: 300);
+    const dur = Duration(milliseconds: 500);
+    const curve = Curves.easeOutQuad;
 
     return Animate(
       effects: const [
-        FadeEffect(duration: dur),
-        SlideEffect(duration: dur, begin: Offset(0, 0.01)),
+        FadeEffect(duration: dur, curve: curve),
+        SlideEffect(duration: dur, begin: Offset(0, 0.01), curve: curve),
+        ScaleEffect(duration: dur, begin: Offset(0.8, 0.8), curve: curve),
       ],
-      child: Expanded(
-        flex: 4,
+      child: Center(
         child: child,
       ),
     );

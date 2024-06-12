@@ -7,7 +7,7 @@ class ModeButtonNone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const ModeButton(
-      mode: Mode.none,
+      mode: Mode.sleep,
       open: SizedBox(
         height: 0,
       ),

@@ -5,27 +5,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class SectionCurrentCondition extends ConsumerWidget {
   const SectionCurrentCondition({super.key});
 
-  String _getTempText(TempMode m, double t) {
-    switch (m) {
-      case TempMode.celsius:
-        return '${t.toString()} °C';
-      case TempMode.fahrenheit:
-        return '${t.toString()} °F';
-      default:
-        return 'ERROR';
-    }
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final Condition c = ref.watch(conditionProvider);
-    final TempMode tempMode = ref.watch(tempModeProvider);
 
     return Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ConditionItem("TEMPERATURE", _getTempText(tempMode, c.temp)),
+          ConditionItem("TEMPERATURE", "${c.temp}°C"),
           ConditionItem("H  U  M  I  D", '${c.humid.toString()}%'),
         ],
       ),
@@ -43,7 +31,7 @@ class ConditionItem extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
       height: 100,
-      width: 200,
+      width: 150,
       child: Column(
         children: [
           Expanded(

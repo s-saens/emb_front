@@ -1,12 +1,24 @@
+import 'package:airflower/data/hive_constants.dart';
 import 'package:airflower/main_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
+Future<void> hiveInit() async {
+  await Hive.deleteFromDisk();
+  await Hive.initFlutter();
+
+  // OPEN BOXES
+  await Hive.openBox(BOX_PRESET);
+}
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  await hiveInit();
   await dotenv.load(fileName: '.env');
+
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(ProviderScope(child: MyApp()));
 }
 
